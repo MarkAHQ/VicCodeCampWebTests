@@ -5,11 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7a350792-b989-47d5-9269-6d0119ed8138" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/test/java/com/accesshq/tests/WebTestSuite.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/test-classes/com/accesshq/tests/WebTestSuite.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/code-camp-webtests.iml" beforeDir="false" afterPath="$PROJECT_DIR$/code-camp-webtests.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/code-camp-webtests.ipr" beforeDir="false" afterPath="$PROJECT_DIR$/code-camp-webtests.ipr" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/code-camp-webtests.iws" beforeDir="false" afterPath="$PROJECT_DIR$/code-camp-webtests.iws" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/accesshq/tests/WebTestSuite.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/accesshq/tests/WebTestSuite.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/com/accesshq/tests/WebTestSuite.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/accesshq/tests/WebTestSuite.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -253,7 +252,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="JUnit.WebTestSuite.MovingButtonTest">
     <configuration selected="false" default="true" type="Applet" factoryName="Applet">
       <module name="" />
       <option name="MAIN_CLASS_NAME" />
@@ -291,6 +290,48 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="WebTestSuite.MovingButtonTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="code-camp-webtests" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.accesshq.tests.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.accesshq.tests" />
+      <option name="MAIN_CLASS_NAME" value="com.accesshq.tests.WebTestSuite" />
+      <option name="METHOD_NAME" value="MovingButtonTest" />
+      <option name="TEST_OBJECT" value="method" />
+      <option name="VM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="wholeProject" />
+      </option>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="WebTestSuite.TableQuantityTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="code-camp-webtests" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.accesshq.tests.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.accesshq.tests" />
+      <option name="MAIN_CLASS_NAME" value="com.accesshq.tests.WebTestSuite" />
+      <option name="METHOD_NAME" value="TableQuantityTest" />
+      <option name="TEST_OBJECT" value="method" />
+      <option name="VM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="wholeProject" />
+      </option>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration default="true" type="JUnit" factoryName="JUnit">
       <option name="TEST_OBJECT" value="class" />
       <option name="VM_PARAMETERS" />
@@ -304,7 +345,9 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.WebTestSuite.MovingButtonTest" />
         <item itemvalue="JUnit.WebTestSuite.DemoTest" />
+        <item itemvalue="JUnit.WebTestSuite.TableQuantityTest" />
       </list>
     </recent_temporary>
   </component>
@@ -446,5 +489,12 @@
   </component>
   <component name="WebViewSettings">
     <webview flattenPackages="false" showMembers="false" autoscrollToSource="false" />
+  </component>
+  <component name="XDebuggerManager">
+    <watches-manager>
+      <configuration name="JUnit">
+        <watch expression="upDownButton.getText()" language="JAVA" />
+      </configuration>
+    </watches-manager>
   </component>
 </project>
