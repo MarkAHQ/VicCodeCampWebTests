@@ -12,14 +12,14 @@ public class WebTestSuite {
     WebDriver driver;
 
     @BeforeEach
-    public void SetUp() {
+    public void setUp() {
         driver = new ChromeDriver();
         driver.manage().window().maximize();
         driver.get("https://d18u5zoaatmpxx.cloudfront.net/");
     }
 
     @Test
-    public void DemoTest() {
+    public void demoTest() {
         // Act
         var actualText = driver.findElement(By.cssSelector("h1.display-1")).getText();
 
@@ -30,7 +30,7 @@ public class WebTestSuite {
     }
 
     @Test
-    public void TableQuantityTest() {
+    public void tableQuantityTest() {
         // Act
         var tableElement = driver.findElement(By.tagName("table"));
         List<WebElement> inputElements = tableElement.findElements(By.tagName("input"));
@@ -40,7 +40,7 @@ public class WebTestSuite {
     }
 
     @Test
-    public void MovingButtonTest() {
+    public void movingButtonTest() {
         // Arrange
 
         // Act
@@ -58,7 +58,7 @@ public class WebTestSuite {
     }
 
     @AfterEach
-    public void Cleanup() {
+    public void cleanup() {
         driver.quit();
     }
 }
