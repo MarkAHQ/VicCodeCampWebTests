@@ -1,10 +1,11 @@
 package com.accesshq.tests;
 
+import com.accesshq.ui.FormsPage;
+import com.accesshq.ui.HomePage;
 import org.junit.jupiter.api.*;
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.*;
-
 import java.util.List;
 
 public class WebTestSuite {
@@ -14,6 +15,7 @@ public class WebTestSuite {
     @BeforeEach
     public void setUp() {
         driver = new ChromeDriver();
+        driver.manage().window().setPosition(new Point(0, -1000));
         driver.manage().window().maximize();
         driver.get("https://d18u5zoaatmpxx.cloudfront.net/");
     }
@@ -55,6 +57,40 @@ public class WebTestSuite {
 
     private WebElement getUpDownButton() {
         return driver.findElement(By.cssSelector("a[role=button]"));
+    }
+
+    @Test
+    public void formSubmitTest() {
+        // Arrange
+        new HomePage(driver).clickFormsButton();
+
+        // Act
+        var name = "Mark Arnold";
+        var formsPage = new FormsPage(driver);
+        formsPage.setName(name);
+        formsPage.setEmail("mark.arnold@accesshq.com");
+        formsPage.clickAgree();
+        formsPage.clickSubmit();
+        new WebDriverWait(driver, 10).until(d -> formsPage.getPopupMessageBox().isDisplayed());
+
+        // Assert
+        Assertions.assertEquals("Thanks for your feedback " + name,
+                formsPage.getPopupMessageBox().getText());
+    }
+
+    @Test
+    public void errorMessagesTest() {
+        // Arrange
+        new HomePage(driver).clickFormsButton();
+
+        // Act
+        var formsPage = new FormsPage(driver);
+        formsPage.clickSubmit();
+
+        // Assert
+        Assertions.assertTrue(formsPage.isNameErrDisplayed());
+        Assertions.assertTrue(formsPage.isEmailErrDisplayed());
+        Assertions.assertTrue(formsPage.isAgreeErrDisplayed());
     }
 
     @AfterEach
