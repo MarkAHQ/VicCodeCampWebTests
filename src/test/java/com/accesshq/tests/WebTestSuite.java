@@ -2,6 +2,7 @@ package com.accesshq.tests;
 
 import com.accesshq.ui.FormsPage;
 import com.accesshq.ui.HomePage;
+import com.accesshq.utils.WaitHelper;
 import org.junit.jupiter.api.*;
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -71,9 +72,10 @@ public class WebTestSuite {
         formsPage.setEmail("mark.arnold@accesshq.com");
         formsPage.clickAgree();
         formsPage.clickSubmit();
-        WaitHelper.RunWithoutImplicitWait(
-            new WebDriverWait(driver, 10).until(d -> formsPage.getPopupMessageBox().isDisplayed());
+        WaitHelper.RunWithoutImplicitWait(driver, () ->
+            new WebDriverWait(driver, 10).until(ExpectedConditions.visibilityOf(formsPage.getPopupMessageBox()))
         );
+
         // Assert
         Assertions.assertEquals("Thanks for your feedback " + name,
                 formsPage.getPopupMessageBox().getText());

@@ -11,7 +11,11 @@ import org.junit.jupiter.api.Test;
 import org.openqa.selenium.Point;
 import org.openqa.selenium.chrome.ChromeDriver;
 
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.Optional;
 import java.util.function.Predicate;
+import java.util.function.ToLongFunction;
 
 public class PlanetTestSuite {
 
@@ -34,6 +38,18 @@ public class PlanetTestSuite {
 
         // Assert
         Assertions.assertEquals(778500000, planet.getDistance());
+    }
+
+    @Test
+    public void furthestDistanceTest() {
+        var planetsPage = new HomePage(driver).clickPlanetsButton();
+
+        PlanetTile furthestPlanet = planetsPage.getPlanetTiles()
+                .stream()
+                .max((o1, o2) -> (int) (o2.getDistance() - o1.getDistance()))
+                .get();
+        
+        Assertions.assertEquals("Neptune", furthestPlanet.getName());
     }
 
     @AfterEach

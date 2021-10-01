@@ -14,7 +14,8 @@ public class HomePage {
         driver.findElement(By.cssSelector("[aria-label=forms]")).click();
     }
 
-    public void clickPlanetsButton() {
+    public PlanetsPage clickPlanetsButton() {
         driver.findElement(By.cssSelector("[aria-label=planets]")).click();
+        return new PlanetsPage(driver);
     }
 }

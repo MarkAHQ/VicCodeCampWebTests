@@ -6,6 +6,8 @@ import org.openqa.selenium.NotFoundException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.function.Predicate;
 
 public class PlanetsPage {
@@ -25,5 +27,14 @@ public class PlanetsPage {
         }
 
         throw new NotFoundException("Could not find planet");
+    }
+
+    public List<PlanetTile> getPlanetTiles() {
+        List<PlanetTile> result = new ArrayList<>();
+        for (WebElement element:driver.findElements(By.className("planet"))) {
+            result.add(new PlanetTile(element));
+        }
+
+        return result;
     }
 }
