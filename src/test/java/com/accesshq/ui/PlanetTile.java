@@ -1,11 +1,8 @@
 package com.accesshq.ui;
 
+import com.accesshq.utils.StringParser;
 import org.openqa.selenium.By;
-import org.openqa.selenium.NotFoundException;
 import org.openqa.selenium.WebElement;
-
-import java.text.NumberFormat;
-import java.text.ParseException;
 
 public class PlanetTile {
     private final WebElement thisElement;
@@ -20,13 +17,6 @@ public class PlanetTile {
 
     public long getDistance() {
         var distanceString = thisElement.findElement(By.className("distance")).getText();
-        distanceString = distanceString.split(" ")[0];
-        try {
-            return NumberFormat.getNumberInstance().parse(distanceString).longValue();
-        } catch (ParseException e) {
-            e.printStackTrace();
-        }
-
-        throw new NotFoundException();
+        return StringParser.KmsToLong(distanceString);
     }
 }

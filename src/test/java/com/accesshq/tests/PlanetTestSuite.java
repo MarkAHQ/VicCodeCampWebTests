@@ -1,14 +1,17 @@
 package com.accesshq.tests;
 
+import com.accesshq.strategies.NameMatch;
 import com.accesshq.ui.HomePage;
+import com.accesshq.ui.PlanetTile;
 import com.accesshq.ui.PlanetsPage;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.Point;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+
+import java.util.function.Predicate;
 
 public class PlanetTestSuite {
 
@@ -27,7 +30,7 @@ public class PlanetTestSuite {
         // Act
         new HomePage(driver).clickPlanetsButton();
         var planetsPage = new PlanetsPage(driver);
-        var planet = planetsPage.getPlanet("Jupiter");
+        var planet = planetsPage.getPlanet(planetTile -> planetTile.getName().equalsIgnoreCase("Jupiter"));
 
         // Assert
         Assertions.assertEquals(778500000, planet.getDistance());

@@ -71,8 +71,9 @@ public class WebTestSuite {
         formsPage.setEmail("mark.arnold@accesshq.com");
         formsPage.clickAgree();
         formsPage.clickSubmit();
-        new WebDriverWait(driver, 10).until(d -> formsPage.getPopupMessageBox().isDisplayed());
-
+        WaitHelper.RunWithoutImplicitWait(
+            new WebDriverWait(driver, 10).until(d -> formsPage.getPopupMessageBox().isDisplayed());
+        );
         // Assert
         Assertions.assertEquals("Thanks for your feedback " + name,
                 formsPage.getPopupMessageBox().getText());
