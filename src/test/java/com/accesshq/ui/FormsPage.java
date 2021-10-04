@@ -39,7 +39,7 @@ public class FormsPage {
     }
 
     private WebElement getElementErrElement(String errorId) {
-        return driver.findElement(By.id(errorId + "err"));
+        return driver.findElement(By.id(errorId + "-err"));
     }
 
     public void setEmail(String email) {

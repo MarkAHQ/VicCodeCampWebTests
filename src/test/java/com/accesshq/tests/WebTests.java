@@ -9,18 +9,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.*;
 import java.util.List;
 
-public class WebTestSuite {
-
-    WebDriver driver;
-
-    @BeforeEach
-    public void setUp() {
-        driver = new ChromeDriver();
-        driver.manage().window().setPosition(new Point(0, -1000));
-        driver.manage().window().maximize();
-        driver.get("https://d18u5zoaatmpxx.cloudfront.net/");
-    }
-
+public class WebTests extends BaseTestSuite {
     @Test
     public void demoTest() {
         // Act
@@ -39,7 +28,7 @@ public class WebTestSuite {
         List<WebElement> inputElements = tableElement.findElements(By.tagName("input"));
 
         // Assert
-        Assertions.assertEquals(5, Integer.parseInt(inputElements.get(0).getAttribute("value")));
+        Assertions.assertEquals(1, Integer.parseInt(inputElements.get(0).getAttribute("value")));
     }
 
     @Test
@@ -94,10 +83,5 @@ public class WebTestSuite {
         Assertions.assertTrue(formsPage.isNameErrDisplayed());
         Assertions.assertTrue(formsPage.isEmailErrDisplayed());
         Assertions.assertTrue(formsPage.isAgreeErrDisplayed());
-    }
-
-    @AfterEach
-    public void cleanup() {
-        driver.quit();
     }
 }

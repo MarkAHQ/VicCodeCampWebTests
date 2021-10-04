@@ -17,17 +17,7 @@ import java.util.Optional;
 import java.util.function.Predicate;
 import java.util.function.ToLongFunction;
 
-public class PlanetTestSuite {
-
-    private ChromeDriver driver;
-
-    @BeforeEach
-    public void setUp() {
-        driver = new ChromeDriver();
-        driver.manage().window().setPosition(new Point(0, -1000));
-        driver.manage().window().maximize();
-        driver.get("https://d18u5zoaatmpxx.cloudfront.net/");
-    }
+public class PlanetTests extends BaseTestSuite {
 
     @Test
     public void jupitersDistanceTest() {
@@ -52,8 +42,4 @@ public class PlanetTestSuite {
         Assertions.assertEquals("Neptune", furthestPlanet.getName());
     }
 
-    @AfterEach
-    public void cleanUp() {
-        driver.quit();
-    }
 }
